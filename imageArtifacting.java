@@ -8,16 +8,16 @@ public class ImageArtifact {
 
     public static void main(String[] args) {
         try {
-            // Load the image
+           //load it
             BufferedImage originalImage = ImageIO.read(new File("input.jpg"));
 
-            // Create a new image for pixelation
+            // make it pixalized
             BufferedImage pixelatedImage = pixelate(originalImage, 10);
 
-            // Create a new image for adding noise
+            // noisy image code
             BufferedImage noisyImage = addNoise(originalImage, 50);
 
-            // Save the modified images
+            // save the images
             ImageIO.write(pixelatedImage, "jpg", new File("pixelated_image.jpg"));
             ImageIO.write(noisyImage, "jpg", new File("noisy_image.jpg"));
 
@@ -83,7 +83,7 @@ public class ImageArtifact {
                 int green = (color >> 8) & 0xFF;
                 int blue = color & 0xFF;
 
-                // Add random noise to each color channel
+                // add random noise to each color
                 red = Math.max(0, Math.min(255, red + (random.nextInt(2 * noiseLevel) - noiseLevel)));
                 green = Math.max(0, Math.min(255, green + (random.nextInt(2 * noiseLevel) - noiseLevel)));
                 blue = Math.max(0, Math.min(255, blue + (random.nextInt(2 * noiseLevel) - noiseLevel)));
